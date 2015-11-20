@@ -66,7 +66,7 @@ void HTTP::start() {
 
         int current_plugin = 0;
         while (plugins[current_plugin]) {
-            plugins[current_plugin]->run(request);
+            plugins[current_plugin]->run(client_socket, request);
             current_plugin++;
         }
 

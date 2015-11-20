@@ -4,6 +4,6 @@ Router::Router() {
 
 }
 
-void Router::run(Request* request) {
-    printf("> Router: %s\n", request->getUrl().c_str());
+void Router::run(int socket, Request* request) {
+    printf("> Router for %d: %s\n", socket, request->getUrl().c_str());
 }

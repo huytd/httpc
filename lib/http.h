@@ -34,6 +34,7 @@ public:
   void start();
   void response(std::string msg);
   void use(IMiddleware* middleware);
+  static void send(std::string data);
 };
 
 #endif

@@ -9,7 +9,7 @@
 class Router: public IMiddleware {
 public:
   Router();
-  void run(Request* request);
+  void run(int socket, Request* request);
 };
 
 #endif
