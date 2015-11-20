@@ -3,7 +3,7 @@
 
 #include <netinet/in.h>
 #include <stdio.h>
-#include <string.h>
+#include <string>
 #include <stdlib.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include "middleware.h"
 #include "router.h"
+#include "request.h"
 
 #define MIDDLEWARE_LIMIT 10
 
@@ -20,7 +21,6 @@ private:
   int client_socket;
   socklen_t http_address_len;
   int buffer_size;
-  char * request_header;
   struct sockaddr_in http_address;
   IMiddleware* plugins[MIDDLEWARE_LIMIT];
 
@@ -29,9 +29,10 @@ private:
 
 public:
   HTTP();
+  ~HTTP();
   void init(int port);
   void start();
-  void response(const char* msg);
+  void response(std::string msg);
   void use(IMiddleware* middleware);
 };
 

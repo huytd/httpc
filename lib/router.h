@@ -2,12 +2,14 @@
 #define __ROUTER_H__
 
 #include <stdio.h>
+#include <string>
 #include "middleware.h"
+#include "request.h"
 
 class Router: public IMiddleware {
 public:
   Router();
-  void run(const char * request_header);
+  void run(Request* request);
 };
 
 #endif
